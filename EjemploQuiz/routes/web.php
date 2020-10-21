@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('pagina01');
 });
 
-Route::get('/pagina02', function () {
-    return view('pagina02');
+Route::get('/pagina02/{tema}', function ($tema) { //$ para indicar variable en php
+    return view('pagina02', ['tema'=>$tema]);
 });
 
 // Ejemplo dos rutas llevan a lo mismo
@@ -26,3 +26,5 @@ Route::get('/pagina02', function () {
 Route::get('/pagina01', function () {   
     return view('pagina01');
 });
+
+Route::get('pregunta/{tema}', 'PreguntasController@carga_pregunta');
